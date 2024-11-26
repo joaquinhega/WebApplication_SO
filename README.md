@@ -44,4 +44,4 @@ El objetivo principal de este proyecto es ofrecer una interfaz de usuario simple
 
 - Este proyecto está configurado solo para pegarle a los endpoints de las APIs mencionadas.
 - Repositorio de la API auth: https://github.com/joaquinhega/auth_api
-- Repositorio de la API order: https://github.com/joaquinhega/orders_api
+- Repositorio de la API order: https://github.com/joaquinhega/order_api
