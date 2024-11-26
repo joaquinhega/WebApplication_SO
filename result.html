@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado de la Compra - EZZENCIAL</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Encabezado -->
+    <header class="header">
+        <a href="Menu.html" class="logo">EZZENCIAL</a>
+        <nav class="navbar">
+            <a href="Menu.html">Inicio</a>
+            <a href="catalog.html">Productos</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <!-- Contenedor de resultado -->
+    <div class="result-container">
+        <!-- Mensaje de éxito o error se cargará aquí según el estado -->
+        <div id="messageContainer"></div>
+    </div>
+
+    <!-- Sección de contacto -->
+    <section id="contacto" class="contacto">
+        <h2>Contacto</h2>
+        <p>¿Tienes alguna consulta? Contáctanos.</p>
+        <a href="mailto:ezencial@gmail.com" class="btn">Escríbenos</a>
+    </section>
+
+    <!-- Script para cambiar el mensaje según el parámetro en la URL -->
+    <script>
+        // Obtener el parámetro 'status' de la URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const status = urlParams.get('status');
+        const messageContainer = document.getElementById('messageContainer');
+
+        // Mostrar mensaje de éxito o error según el parámetro
+        if (status === 'success') {
+            messageContainer.innerHTML = `
+                <h1>¡Compra Exitosa!</h1>
+                <p>Gracias por tu compra. Hemos recibido tu pedido y pronto recibirás una confirmación en tu correo electrónico.</p>
+                <a href="catalog.html" class="btn">Volver al Catálogo</a>
+            `;
+        } else if (status === 'failure') {
+            messageContainer.innerHTML = `
+                <h1>Error en la Compra</h1>
+                <p>Hubo un problema al procesar tu compra. Por favor, intenta nuevamente o contacta con soporte.</p>
+                <a href="checkout.html" class="btn">Volver al Checkout</a>
+            `;
+        } else {
+            messageContainer.innerHTML = `
+                <h1>Estado Desconocido</h1>
+                <p>No se ha podido determinar el resultado de la operación.</p>
+                <a href="catalog.html" class="btn">Volver al Catálogo</a>
+            `;
+        }
+    </script>
+</body>
+</html>
